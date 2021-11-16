@@ -4,14 +4,29 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcDaoSupport;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import user.bean.UserDTO;
 
+//@Component
+@Repository   //DB와 연결되는 것들은 뜻함
 public class UserDAOImpl extends NamedParameterJdbcDaoSupport implements UserDAO {
 		
+	@Autowired
+	public void setDS(DataSource dataSource) {
+		setDataSource(dataSource);
+	}
+	
+	
+	
+	
 	
 	@Override
 	public void write(UserDTO userDTO) {

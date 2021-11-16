@@ -30,12 +30,13 @@
 	<context:property-placeholder location="classpath:spring/db.properties" />	
 	
 	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" >
-	<property name="driverClassName" value="${jdbc.driver}"/>
-	<property name="url" value="${jdbc.url}"/>
-	<property name="username" value="${jdbc.username}"/>
-	<property name="password" value="${jdbc.password}"/>
-	<property name="maxTotal" value="20"/>
-	<property name="maxIdle" value="3"/></bean>
+		<property name="driverClassName" value="${jdbc.driver}"/>
+		<property name="url" value="${jdbc.url}"/>
+		<property name="username" value="${jdbc.username}"/>
+		<property name="password" value="${jdbc.password}"/>
+		<property name="maxTotal" value="20"/>
+		<property name="maxIdle" value="3"/>
+	</bean>
 		
 	
 	
@@ -48,13 +49,16 @@
 		<property name="userDTO" ref="userDTO"></property>
 		<property name="userDAO" ref="userDAOImpl"></property>
 	</bean>
+	
 	<bean id="userSelectService" class="user.service.UserSelectService">
 		<property name="userDAO" ref="userDAOImpl"></property>
 	</bean>
+	
 	<bean id="userUpdateService" class="user.service.UserUpdateService"  >
 		<property name="userDTO" ref="userDTO"></property>
 		<property name="userDAO" ref="userDAOImpl"></property>
 	</bean>
+	
 	<bean id="userDeleteService" class="user.service.UserDeleteService"  >
 		<property name="userDTO" ref="userDTO"></property>
 		<property name="userDAO" ref="userDAOImpl"></property>
